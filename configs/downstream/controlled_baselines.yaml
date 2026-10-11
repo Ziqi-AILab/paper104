@@ -1,0 +1,42 @@
+version: 1
+
+reporting_table: controlled_common_table
+split_source: project_task_manifests
+prediction_schema: PredictionRecord
+
+classical:
+  methods:
+    ecfp-ridge:
+      seeds: [0]
+    rdkit-ridge:
+      seeds: [0]
+    nearest-neighbor:
+      seeds: [0]
+    ecfp-xgboost:
+      seeds: [11, 22, 33]
+    rdkit-xgboost:
+      seeds: [11, 22, 33]
+  execution: "[CPU → local, no sbatch]"
+
+chemprop:
+  method: chemprop
+  model_family: D-MPNN
+  seeds: [11, 22, 33]
+  epochs: 30
+  batch_size: 50
+  num_workers: 8
+  checkpoint_retention: metadata
+  execution: "[GPU-A800 → sbatch]"
+
+input_views:
+  structure_only: molecular_graph_or_descriptor
+  structure_plus_metadata: molecular_graph_or_descriptor_plus_train_fitted_positional_metadata
+
+learning_curves:
+  detailed_tasks: [EA, IP, EGC, XC]
+  detailed_fractions: [0.01, 0.05, 0.10, 0.25, 0.50, 1.00]
+  other_transpolymer_fractions: [0.10, 1.00]
+  highlighted_openpoly_fractions: [0.10, 1.00]
+  other_openpoly_fractions: [1.00]
+  subsamples_below_full_data: [0, 1, 2, 3, 4]
+  subsamples_at_full_data: [0]

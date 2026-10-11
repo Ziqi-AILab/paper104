@@ -1,0 +1,256 @@
+{
+  "method": "A_gcl",
+  "representation_seed": 2026,
+  "records": 1880,
+  "repeat_eligible_records": 1880,
+  "equivalent_views": 49845,
+  "applicability_controls": 5640,
+  "selected_hidden_layers": [
+    0,
+    3,
+    6,
+    9,
+    12
+  ],
+  "equivalence_summary": [
+    {
+      "view_family": "alternative_periodic_cut",
+      "layer": 0,
+      "n_views": 13081,
+      "n_samples": 1573,
+      "mean_cosine": 0.9828604826
+    },
+    {
+      "view_family": "alternative_periodic_cut",
+      "layer": 3,
+      "n_views": 13081,
+      "n_samples": 1573,
+      "mean_cosine": 0.9543699651
+    },
+    {
+      "view_family": "alternative_periodic_cut",
+      "layer": 6,
+      "n_views": 13081,
+      "n_samples": 1573,
+      "mean_cosine": 0.9591877231
+    },
+    {
+      "view_family": "alternative_periodic_cut",
+      "layer": 9,
+      "n_views": 13081,
+      "n_samples": 1573,
+      "mean_cosine": 0.8951343542
+    },
+    {
+      "view_family": "alternative_periodic_cut",
+      "layer": 12,
+      "n_views": 13081,
+      "n_samples": 1573,
+      "mean_cosine": 0.7482379718
+    },
+    {
+      "view_family": "atom_order_permutation",
+      "layer": 0,
+      "n_views": 18373,
+      "n_samples": 1880,
+      "mean_cosine": 0.9573045883
+    },
+    {
+      "view_family": "atom_order_permutation",
+      "layer": 3,
+      "n_views": 18373,
+      "n_samples": 1880,
+      "mean_cosine": 0.9023467133
+    },
+    {
+      "view_family": "atom_order_permutation",
+      "layer": 6,
+      "n_views": 18373,
+      "n_samples": 1880,
+      "mean_cosine": 0.8974329244
+    },
+    {
+      "view_family": "atom_order_permutation",
+      "layer": 9,
+      "n_views": 18373,
+      "n_samples": 1880,
+      "mean_cosine": 0.8214677999
+    },
+    {
+      "view_family": "atom_order_permutation",
+      "layer": 12,
+      "n_views": 18373,
+      "n_samples": 1880,
+      "mean_cosine": 0.8743223803
+    },
+    {
+      "view_family": "randomized_smiles",
+      "layer": 0,
+      "n_views": 18391,
+      "n_samples": 1880,
+      "mean_cosine": 0.9570486993
+    },
+    {
+      "view_family": "randomized_smiles",
+      "layer": 3,
+      "n_views": 18391,
+      "n_samples": 1880,
+      "mean_cosine": 0.9019528595
+    },
+    {
+      "view_family": "randomized_smiles",
+      "layer": 6,
+      "n_views": 18391,
+      "n_samples": 1880,
+      "mean_cosine": 0.8967941406
+    },
+    {
+      "view_family": "randomized_smiles",
+      "layer": 9,
+      "n_views": 18391,
+      "n_samples": 1880,
+      "mean_cosine": 0.8207749669
+    },
+    {
+      "view_family": "randomized_smiles",
+      "layer": 12,
+      "n_views": 18391,
+      "n_samples": 1880,
+      "mean_cosine": 0.8738398436
+    }
+  ],
+  "applicability_summary": [
+    {
+      "control_family": "h_capped",
+      "layer": 0,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 0.9618601278
+    },
+    {
+      "control_family": "h_capped",
+      "layer": 3,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 0.9280647313
+    },
+    {
+      "control_family": "h_capped",
+      "layer": 6,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 0.9530246031
+    },
+    {
+      "control_family": "h_capped",
+      "layer": 9,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 0.9030945988
+    },
+    {
+      "control_family": "h_capped",
+      "layer": 12,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 0.8656197164
+    },
+    {
+      "control_family": "marker_substituted",
+      "layer": 0,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 0.9643006955
+    },
+    {
+      "control_family": "marker_substituted",
+      "layer": 3,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 0.9377672004
+    },
+    {
+      "control_family": "marker_substituted",
+      "layer": 6,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 0.9611939972
+    },
+    {
+      "control_family": "marker_substituted",
+      "layer": 9,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 0.9235673234
+    },
+    {
+      "control_family": "marker_substituted",
+      "layer": 12,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 0.8219879188
+    },
+    {
+      "control_family": "valid",
+      "layer": 0,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 1.0
+    },
+    {
+      "control_family": "valid",
+      "layer": 3,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 1.0
+    },
+    {
+      "control_family": "valid",
+      "layer": 6,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 1.0
+    },
+    {
+      "control_family": "valid",
+      "layer": 9,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 1.0
+    },
+    {
+      "control_family": "valid",
+      "layer": 12,
+      "n_controls": 1880,
+      "n_samples": 1880,
+      "mean_cosine": 1.0
+    }
+  ],
+  "layer_drift_summary": [
+    {
+      "layer": 0,
+      "n_samples": 1880,
+      "mean_checkpoint_cosine": 0.9817158336
+    },
+    {
+      "layer": 3,
+      "n_samples": 1880,
+      "mean_checkpoint_cosine": 0.940116492
+    },
+    {
+      "layer": 6,
+      "n_samples": 1880,
+      "mean_checkpoint_cosine": 0.8833657164
+    },
+    {
+      "layer": 9,
+      "n_samples": 1880,
+      "mean_checkpoint_cosine": 0.7298335331
+    },
+    {
+      "layer": 12,
+      "n_samples": 1880,
+      "mean_checkpoint_cosine": 0.4154658191
+    }
+  ]
+}

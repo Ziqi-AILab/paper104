@@ -1,0 +1,29 @@
+{
+  "equivalence_cosine": 0.8178736326364455,
+  "recall_at_1": 0.5085106382978724,
+  "mrr": 0.640628772350219,
+  "topology_margin": 0.09224053246089375,
+  "triplet_accuracy": 0.7319148936170212,
+  "triplets": 1880,
+  "decoys_per_anchor": 99,
+  "decoy_bank_size": 31210,
+  "method": "A_gcl",
+  "representation_seed": 123,
+  "decoy_bank_path": "./data/relations/test/retrieval_decoy_bank.parquet",
+  "topology_controls_by_family": {
+    "closure_rewiring": {
+      "n": 1571,
+      "topology_margin": 0.022010665160822708,
+      "triplet_accuracy": 0.5798854232972629,
+      "anchor_positive_cosine": 0.801270516401031,
+      "anchor_negative_cosine": 0.7792598512402081
+    },
+    "endpoint_relocation": {
+      "n": 1674,
+      "topology_margin": 0.035752983604305316,
+      "triplet_accuracy": 0.6200716845878136,
+      "anchor_positive_cosine": 0.8067200183161178,
+      "anchor_negative_cosine": 0.7709670347118125
+    }
+  }
+}

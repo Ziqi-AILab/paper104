@@ -1,0 +1,48 @@
+version: 1
+evaluation:
+  equivalence_views:
+    - randomized_smiles
+    - alternative_periodic_cut
+    - atom_order_permutation
+  equivalence_evidence_axes:
+    traversal_invariance:
+      generation_procedures: [randomized_smiles, atom_order_permutation]
+      count_as_independent_evidence: false
+    repeat_window_equivalence:
+      generation_procedures: [alternative_periodic_cut]
+  periodic_eligibility:
+    dataset_identity_status_field: periodic_identity_status
+    relation_identity_representability_fields:
+      - anchor_periodic_identity_representable
+      - negative_periodic_identity_representable
+    relation_nontrivial_cut_availability_fields:
+      - anchor_nontrivial_periodic_cut_available
+      - negative_nontrivial_periodic_cut_available
+    report_separately: true
+  topology_changes:
+    - endpoint_relocation
+    - closure_rewiring
+  semantic_controls:
+    - h_capped
+    - marker_substituted
+  local_mlm_strata: [attachment_distance_0, attachment_distance_1, attachment_distance_2, attachment_distance_3_plus, interior]
+  local_mlm_aliases:
+    attachment_distance_3_plus: interior
+  local_mlm_primary_strata: [attachment_distance_0, attachment_distance_1, attachment_distance_2, interior]
+  local_mlm_weighting: [token_weighted, atom_group_equal]
+metrics:
+  equivalence: [cosine_similarity, recall_at_1, mrr, prediction_standard_deviation]
+  topology: [topology_margin, triplet_accuracy]
+  local_mlm: [nll, accuracy]
+  retention: [zinc_mlm, esol, freesolv, lipophilicity, layer_drift]
+statistics:
+  representation_seeds: [42, 123, 777, 2025, 2026]
+  head_seeds_nested: [11, 22, 33]
+  bootstrap_resamples: 10000
+  primary_comparisons:
+    - [A0, B0]
+    - [A_att, A0]
+    - [A_eqs, A_gcl]
+  multiplicity_adjustment: holm_for_primary_aggregate_comparisons
+  utility_aggregate: task_equal_paired_log_error_ratio
+  preserve_raw_task_units: true

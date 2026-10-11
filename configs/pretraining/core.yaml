@@ -1,0 +1,36 @@
+version: 1
+model:
+  checkpoint: chemberta_100m_mlm
+  max_length: 256
+  train_complete_backbone: true
+  precision: bf16
+training:
+  epochs: 3
+  effective_anchor_batch_size: 256
+  micro_batch_size: 32
+  gradient_accumulation: 8
+  relation_micro_batch_size: 8
+  relation_gradient_accumulation: 32
+  optimizer: adamw
+  weight_decay: 0.01
+  warmup_fraction: 0.05
+  scheduler: linear
+  checkpoint_token_fractions: [0.01, 0.05, 0.10, 0.25, 0.50, 1.00]
+seeds:
+  development: [13, 37]
+  formal: [42, 123, 777, 2025, 2026]
+learning_rate_candidates:
+  warm_start: [0.00001, 0.00003, 0.0001]
+  scratch: [0.00003, 0.0001, 0.0003]
+masking:
+  atom_group_mask_probability: 0.15
+  attachment_marker_is_primary_target: false
+  boundary_distances: [0, 1, 2]
+  boundary_distance_sampling: equal
+  boundary_interior_candidates:
+    - [0.50, 0.40, 0.10]
+    - [0.65, 0.25, 0.10]
+    - [0.80, 0.10, 0.10]
+selection:
+  development_only: true
+  recipe_fixed_before_formal_seeds: true

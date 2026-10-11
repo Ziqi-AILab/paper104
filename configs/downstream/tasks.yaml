@@ -1,0 +1,62 @@
+version: 1
+project_datasets:
+  pe_i_official: data/derived/transpolymer_pe_i_official.parquet
+  pe_i_official_manifest: data/splits/transpolymer_pe_i_official_group_disjoint.parquet
+pe_i_protocol:
+  split: official_group_disjoint
+  primary_view:
+    name: structure_only
+    text_column: structure_only_text
+    role: primary_controlled_comparison
+  secondary_view:
+    name: structure_plus_metadata
+    text_column: structure_with_metadata_text
+    role: additional_information_reference
+  aggregate_policy: report_separately
+representation:
+  pooling: token_mean
+  frozen_head_dimensions: [768, 256]
+  activation: gelu
+  dropout: 0.10
+  head_seeds: [11, 22, 33]
+  learning_rate_candidates: [0.0001, 0.0003, 0.001]
+primary_tasks:
+  aldeghi:
+    endpoints: [EA, IP]
+    splits: [pair_id, family_ood, butina_cluster, random]
+  transpolymer:
+    all_tasks: true
+    highlighted: [Egc, Xc, PE-I]
+    pe_i_views: [structure_only, structure_plus_metadata]
+  openpoly:
+    all_endpoints: true
+    role: external_applicability
+    highlighted:
+      - Tg
+      - Bandgap-Chain
+      - CO2 permeability
+      - refractive index
+      - crystallization tendency
+      - tensile strength
+learning_curves:
+  detailed_tasks: [EA, IP, Egc, Xc]
+  detailed_fractions: [0.01, 0.05, 0.10, 0.25, 0.50, 1.00]
+  detailed_nested_group_subsamples: 5
+  other_transpolymer_fractions: [0.10, 1.00]
+  highlighted_openpoly_fractions: [0.10, 1.00]
+  all_openpoly_fractions: [1.00]
+adaptation:
+  lora_tasks: [EA, IP, Egc, Xc]
+  lora_arms: [B0, A0, A_att, A_gcl, A_eqs, B_eqs]
+  full_finetuning_arms: [A0, A_eqs]
+  full_finetuning_tasks: [EA, Egc]
+  checkpoint_retention:
+    lora: trainable
+    full_finetuning: metadata
+baselines:
+  controlled_common_table: [ecfp_rdkit, nearest_neighbor, chemprop]
+  same_split_external_reference: [transpolymer, periogt, grin]
+  completed_a800_smoke: [transpolymer, periogt, grin]
+  pending_a800_smoke: []
+  missing_implementation: [wd_mpnn, poco]
+  incompatible_results: literature_reference

@@ -1,0 +1,44 @@
+version: 1
+reference_arm:
+  id: C
+  initialization: molecular_pretrained
+  pi1m_training: none
+  formal_seeds: []
+trained_arms:
+  - id: B0
+    initialization: random
+    objective: uniform_mlm
+  - id: A0
+    initialization: molecular_pretrained
+    objective: uniform_mlm
+  - id: A_att
+    initialization: molecular_pretrained
+    objective: boundary_mlm
+  - id: A_gcl
+    initialization: molecular_pretrained
+    objective: boundary_mlm_generic_contrastive
+  - id: A_eqs
+    initialization: molecular_pretrained
+    objective: boundary_mlm_equivalence_topology
+  - id: B_eqs
+    initialization: random
+    objective: boundary_mlm_equivalence_topology
+relation_objective:
+  projection_dimensions: [768, 768, 256]
+  activation: gelu
+  l2_normalize: true
+  loss_weight: 0.10
+  temperature: 0.10
+controls:
+  formal_seed_subset: [42, 123, 777]
+  recipes:
+    - matched_random_masking
+    - permuted_boundary_masking
+    - equivalence_only
+    - topology_negative_only
+fairness:
+  shared_split: true
+  shared_batch_stream: true
+  shared_effective_token_budget: true
+  shared_checkpoint_schedule: true
+  shared_negative_between_relation_arms: true

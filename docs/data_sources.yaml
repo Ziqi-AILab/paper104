@@ -1,0 +1,114 @@
+version: 2
+manifest_role: public_data_sources_for_paper104
+standardization_entrypoint: >-
+  ./.conda/env/bin/polyfid
+  data rebuild-public all --output-root <explicit-output-directory>
+
+datasets:
+  pi1m:
+    raw_source: https://github.com/RUIMINMA1996/PI1M
+    public_access: direct_official_repository
+    acquisition_command: git clone https://github.com/RUIMINMA1996/PI1M.git raw/pi1m
+    access_date: 2026-08-08
+    version: PI1M_v2.csv
+    license_or_use_note: MIT repository license; README separately states "Data for academic purpose only."
+    raw_path: raw/pi1m/PI1M_v2.csv
+    raw_unit: one generated polymer PSMILES and synthetic-accessibility value per row
+    standardized_output: standardized/v1/pi1m/pi1m_v2.parquet
+    derived_task: PI1M continued-pretraining corpus; Paper104 derives two-cell periodic identities locally
+    split_group: standardized-v1 closed-repeat identity followed by Paper104 two-cell periodic identity
+    retained_status: retained
+    retention_reason: official public source and required target-domain corpus
+
+  aldeghi_vipea:
+    raw_source: https://github.com/coleygroup/polymer-chemprop-data
+    public_access: direct_official_repository
+    acquisition_command: git clone https://github.com/coleygroup/polymer-chemprop-data.git raw/aldeghi_vipea
+    access_date: 2026-08-08
+    version: VIPEA table with supplied CV9 monomer and CV10 random split files
+    license_or_use_note: MIT repository license
+    raw_path: raw/aldeghi_vipea/datasets/vipea
+    raw_unit: one monomer-pair formulation with EA and IP labels per row
+    standardized_output: standardized/v1/aldeghi_vipea
+    derived_task: EA and IP under pair-ID, family-OOD, Butina-cluster, and random protocols
+    split_group: monomer_pair_group_id; official family roles remain row-defined and group overlaps are resolved project-locally
+    retained_status: retained
+    retention_reason: official public source with explicit structures, labels, and split files
+
+  transpolymer:
+    raw_source: https://github.com/ChangwenXu98/TransPolymer
+    public_access: direct_official_repository_with_git_lfs
+    acquisition_command: >-
+      git clone https://github.com/ChangwenXu98/TransPolymer.git raw/transpolymer/upstream
+      && git -C raw/transpolymer/upstream lfs pull
+      && cp raw/transpolymer/upstream/data/*.csv raw/transpolymer/exports/
+    access_date: 2026-08-08
+    version: official ten-task repository tables and supplied PE-I train/test files
+    license_or_use_note: MIT repository license; individual endpoint data retain the source terms cited by TransPolymer
+    raw_path: raw/transpolymer/exports
+    raw_unit: one serialized polymer-material input and one upstream numeric target per row
+    standardized_output: standardized/v1/transpolymer
+    derived_task: Eea, Egb, Egc, Ei, EPS, Nc, OPV, PE-I, PE-II, and Xc
+    split_group: canonical structure_group_id; PE-I additionally preserves the supplied train/test role
+    retained_status: retained
+    retention_reason: official public task tables used for controlled same-split evaluation
+    pe_i_label_note: >-
+      Target is log10 conductivity in S/cm. The official original PE-I workbook supplies linear
+      Conductivity [S/cm], while the TransPolymer export retains that column name after applying log10.
+      Paper104 reads the exported log10 values verbatim and applies no further target transformation.
+    pe_i_scale_evidence: raw/transpolymer/upstream/data/original datasets/PE_I.xlsx
+    pe_i_identity_note: official train/test partition is included in sample_id because their source row numbers restart at zero
+
+  openpoly_website_snapshot_2026_08_08:
+    raw_source: https://cleanenergymaterials.cn/polymer/polymer_database/experiment_polymer_database
+    public_access: conditional_snapshot; stable public download command and reuse terms not yet documented
+    acquisition_command: null
+    access_date: 2026-08-08
+    version: website spreadsheet snapshot; explicitly not the WangGroupFDU/Openpoly_benchmark GitHub dataset
+    license_or_use_note: reuse terms require confirmation; record-level references are retained
+    raw_path: raw/openpoly/experiment_polymer_data.xlsx
+    raw_unit: one polymer record with sparse experimental-property columns per row
+    standardized_output: standardized/v1/openpoly/openpoly_live_2026_08_08.parquet
+    derived_task: endpoint-separated external applicability analysis with conditions unavailable and not inferred
+    split_group: repeat_equivalence_id within this snapshot only
+    retained_status: conditional_external_applicability
+    formal_retained: false
+    retention_reason: historical snapshot was excluded from formal evaluation; future formal use requires a documented acquisition route and reuse terms
+
+  molecular_retention:
+    raw_source: https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/
+    public_access: direct_public_files
+    acquisition_command: >-
+      curl -L -o raw/molecular_retention/delaney-processed.csv
+      https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/delaney-processed.csv
+      && curl -L -o raw/molecular_retention/SAMPL.csv
+      https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/SAMPL.csv
+      && curl -L -o raw/molecular_retention/Lipophilicity.csv
+      https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/Lipophilicity.csv
+    access_date: 2026-08-08
+    version: public ESOL, FreeSolv, and Lipophilicity CSV exports
+    license_or_use_note: each endpoint retains its upstream dataset terms
+    raw_path: raw/molecular_retention
+    raw_unit: one molecular SMILES and one experimental label per row
+    standardized_output: standardized/v1/molecular_retention
+    derived_task: ESOL, FreeSolv, and Lipophilicity molecular-retention probes
+    split_group: Bemis-Murcko scaffold plus canonical molecular identity
+    retained_status: retained
+    retention_reason: direct public files supporting molecular-capability retention analysis
+
+  zinc20_auxiliary_retention:
+    raw_source: https://huggingface.co/datasets/zpn/zinc20
+    public_access: direct_public_file
+    acquisition_command: >-
+      curl -L -o raw/zinc20/zinc_processed/smiles_all_00_clean.jsonl.gz
+      https://huggingface.co/datasets/zpn/zinc20/resolve/main/zinc_processed/smiles_all_00_clean.jsonl.gz
+    access_date: 2026-08-08
+    version: smiles_all_00_clean source shard used by the imported standardized table
+    license_or_use_note: ODbL as stated on the source dataset card
+    raw_path: raw/zinc20/zinc_processed/smiles_all_00_clean.jsonl.gz
+    raw_unit: one molecular SMILES per source record
+    standardized_output: standardized/v1/zinc20
+    derived_task: auxiliary held-out molecular MLM retention
+    split_group: canonical molecular identity
+    retained_status: retained
+    retention_reason: direct public source shard and complete local raw-to-standardized rebuild path are present

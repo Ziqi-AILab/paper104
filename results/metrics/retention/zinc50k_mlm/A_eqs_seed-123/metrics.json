@@ -1,0 +1,18 @@
+{
+  "records_requested": 50000,
+  "records_scored": 50000,
+  "records_skipped": 0,
+  "skip_reasons": {},
+  "mask_probability": 0.15,
+  "mask_seed": 10407,
+  "masked_atom_groups": 106113,
+  "supervised_tokens": 163245,
+  "token_mean_nll": 2.821209189355388,
+  "token_accuracy": 0.48213421544304574,
+  "atom_group_mean_nll": 2.0198173227083265,
+  "atom_group_accuracy": 0.5390479960042596,
+  "method": "A_eqs",
+  "representation_seed": 123,
+  "dataset": "./assets/data/standardized/v1/zinc20/zinc20_1m.parquet",
+  "split": "retention"
+}

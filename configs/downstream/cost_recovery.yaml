@@ -1,0 +1,22 @@
+version: 1
+tasks: [Egc, Egb, Eea, Ei, Xc, EPS, Nc]
+methods: [chemprop, transpolymer, periogt, grin]
+protocol: group_ood
+fold: 0
+seed: 11
+label_fraction: 1.0
+input_view: structure_only
+checkpoint_retention: trainable
+resource:
+  partition: gpua800
+  gres: gpu:a800:1
+  cpus_per_task: 8
+  memory: 80G
+  wall_time: '01:00:00'
+original_manifests:
+  chemprop: slurm/generated/controlled_baselines/chemprop/chemprop_dpnn_manifest.tsv
+  transpolymer: slurm/generated/external_reference/transpolymer/transpolymer_external_reference_manifest.tsv
+  periogt: slurm/generated/external_reference/graph_models/periogt_external_reference_manifest.tsv
+  grin: slurm/generated/external_reference/graph_models/grin_external_reference_manifest.tsv
+original_periogt_prepare_manifest: slurm/generated/external_reference/graph_models/periogt_prepare_manifest.tsv
+purpose: restore_selected_task_weights_for_cost_measurement_not_new_performance_selection

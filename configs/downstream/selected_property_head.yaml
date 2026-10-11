@@ -1,0 +1,20 @@
+selection_split: validation
+candidate_learning_rates:
+- 0.0001
+- 0.0003
+- 0.001
+validation_summary:
+- learning_rate: 0.0001
+  mean_validation_loss: 0.3300898135586419
+  observations: 22
+- learning_rate: 0.0003
+  mean_validation_loss: 0.31915207392463985
+  observations: 22
+- learning_rate: 0.001
+  mean_validation_loss: 0.31672609212936875
+  observations: 22
+selected_recipe:
+  property_head_learning_rate: 0.001
+development_representation_seeds:
+- 13
+- 37

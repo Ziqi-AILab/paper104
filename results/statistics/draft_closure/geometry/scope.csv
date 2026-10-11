@@ -1,0 +1,7 @@
+scope,n_representation_seeds,n_anchors,n_paired_seed_rows,candidate,baseline
+overall,5,1880,9400,A_eqs,A_gcl
+alternative_periodic_cut,5,627,3135,A_eqs,A_gcl
+randomized_traversal,5,627,3135,A_eqs,A_gcl
+reverse_when_non_noop,5,626,3130,A_eqs,A_gcl
+endpoint_relocation,5,1674,8370,A_eqs,A_gcl
+closure_rewiring,5,1571,7855,A_eqs,A_gcl

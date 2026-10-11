@@ -1,0 +1,32 @@
+version: 1
+project_root: .
+shared_data_root: ./assets/data
+shared_model_root: ./assets/models
+checkpoint_root: ./assets/checkpoints
+exclusion_root: ./assets/exclusions
+formal_retained:
+  openpoly: false
+project_paths:
+  split_root: data/splits
+  relation_root: data/relations
+  index_root: data/indices
+  derived_root: data/derived
+  run_root: runs
+  prediction_root: results/predictions
+  metric_root: results/metrics
+  statistic_root: results/statistics
+  figure_root: figures
+  paper_root: paper
+  log_root: logs
+shared_assets:
+  pi1m: standardized/v1/pi1m
+  aldeghi_vipea: standardized/v1/aldeghi_vipea
+  transpolymer: standardized/v1/transpolymer
+  openpoly: standardized/v1/openpoly
+  molecular_retention: standardized/v1/molecular_retention
+  chemberta_100m_mlm: chemberta_100m_mlm
+  chemberta_77m_mlm: chemberta_77m_mlm
+asset_policy:
+  shared_data: reusable_raw_or_standardized_only
+  project_data: splits_relations_indices_embeddings_predictions
+  project_checkpoints: paper_104_namespace

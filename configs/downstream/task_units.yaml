@@ -1,0 +1,32 @@
+version: 1
+reviewed_on: '2026-10-07'
+policy: report errors in the retained upstream target scale; no new target transforms
+sources:
+  transpolymer_tables_2_to_5: https://changwenxu98.github.io/files/s41524-023-01016-5.pdf
+  original_seven_task_table_1: https://pmc.ncbi.nlm.nih.gov/articles/PMC8085610/
+  transpolymer_raw_data: https://github.com/ChangwenXu98/TransPolymer/tree/master/data
+  vipea: https://github.com/coleygroup/polymer-chemprop-data
+tasks:
+  EA: {property: electron affinity, target_unit: eV, metric: MAE, source: vipea}
+  IP: {property: ionization potential, target_unit: eV, metric: MAE, source: vipea}
+  EGC: {property: chain band gap, target_unit: eV, metric: RMSE, source: transpolymer_tables_2_to_5}
+  EGB: {property: bulk band gap, target_unit: eV, metric: RMSE, source: transpolymer_tables_2_to_5}
+  EEA: {property: electron affinity, target_unit: eV, metric: RMSE, source: transpolymer_tables_2_to_5}
+  EI: {property: ionization energy, target_unit: eV, metric: RMSE, source: transpolymer_tables_2_to_5}
+  XC: {property: crystallization tendency, target_unit: percent, error_unit: percentage_points, metric: RMSE, source: transpolymer_tables_2_to_5}
+  EPS: {property: dielectric constant, target_unit: dimensionless, metric: RMSE, source: original_seven_task_table_1}
+  NC: {property: refractive index, target_unit: dimensionless, metric: RMSE, source: original_seven_task_table_1}
+  OPV: {property: power conversion efficiency, target_unit: percent, error_unit: percentage_points, metric: RMSE, source: transpolymer_tables_2_to_5}
+  PE-I:
+    property: electrolyte conductivity
+    target_unit: log10 of conductivity numerical value in S/cm
+    metric: RMSE
+    source: transpolymer_tables_2_to_5
+    local_scale_evidence: Dataset/polymer_fidelity/SOURCES.yaml pe_i_label_scale_note
+    note: official supplied train/test label is already logarithmic; do not log again
+  PE-II:
+    property: electrolyte conductivity at 60 degrees C
+    target_unit: upstream logCond60 conductivity scale
+    metric: RMSE
+    source: transpolymer_tables_2_to_5
+    note: Table 3 specifies logarithmic S/cm scale; preserve supplied logCond60, without inferring a different transform

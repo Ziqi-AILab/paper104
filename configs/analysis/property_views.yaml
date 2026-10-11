@@ -1,0 +1,30 @@
+version: 1
+scope: declared_polymer_downstream_test_records
+probe_state:
+  label_fraction: 1.0
+  subsample_id: 0
+  head_seeds: [11, 22, 33]
+views:
+  seed: 10407
+  randomized_traversals: 10
+  atom_order_permutations: 10
+  maximum_alternative_periodic_cuts: 10
+  axes:
+    traversal:
+      generators: [randomized_smiles, atom_order_permutation]
+      interpretation: one shared traversal axis
+    periodic_cut:
+      generators: [alternative_periodic_cut]
+      interpretation: equivalent repeat-window axis
+  reference_in_within_record_std: true
+  observed_generation_failure:
+    code: randomization_changed_identity
+    handling: omit_that_records_randomized_generator_and_record_in_scope_census
+    other_verified_generators: retained
+semantic_controls:
+  included_in_equivalence_std: false
+  reporting: separate_applicability_analysis
+execution:
+  input_construction: "[CPU → local, no sbatch]"
+  view_embedding_cache: "[GPU-A800 → sbatch]"
+  fitted_head_prediction: "[CPU → local, no sbatch]"

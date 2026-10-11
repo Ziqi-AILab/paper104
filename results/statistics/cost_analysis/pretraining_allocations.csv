@@ -1,0 +1,32 @@
+method,representation_seed,allocated_4090_hours,completed_state_hours,other_state_hours,failed_or_interrupted_hours,running_hours,pending_hours,n_allocations,scope,job_ids,history_class,gpu_hours
+C,0,0.0,0.0,0.0,0.0,0.0,0.0,0,no PI1M training; upstream cost not zero,,,0.0
+B0,42,1.4602777777777778,1.4602777777777778,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124765,single observed allocation,1.4602777777777778
+B0,123,1.4775,1.4775,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124766,single observed allocation,1.4775
+B0,777,1.4747222222222223,1.4747222222222223,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124767,single observed allocation,1.4747222222222223
+B0,2025,1.4533333333333334,1.4533333333333334,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124768,single observed allocation,1.4533333333333334
+B0,2026,1.4519444444444445,1.4519444444444445,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124909,single observed allocation,1.4519444444444445
+A0,42,1.4680555555555554,1.4680555555555554,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124910,single observed allocation,1.4680555555555554
+A0,123,1.4736111111111112,1.4736111111111112,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124911,single observed allocation,1.4736111111111112
+A0,777,1.525,1.525,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124912,single observed allocation,1.525
+A0,2025,1.4955555555555555,1.4955555555555555,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124913,single observed allocation,1.4955555555555555
+A0,2026,1.4672222222222222,1.4672222222222222,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124914,single observed allocation,1.4672222222222222
+A_att,42,1.4830555555555556,1.4830555555555556,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124915,single observed allocation,1.4830555555555556
+A_att,123,1.478611111111111,1.478611111111111,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124916,single observed allocation,1.478611111111111
+A_att,777,1.486388888888889,1.486388888888889,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124917,single observed allocation,1.486388888888889
+A_att,2025,1.5133333333333334,1.5133333333333334,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124918,single observed allocation,1.5133333333333334
+A_att,2026,1.518888888888889,1.518888888888889,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124919,single observed allocation,1.518888888888889
+A_gcl,42,5.949722222222222,5.949722222222222,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124920,single observed allocation,5.949722222222222
+A_gcl,123,5.8597222222222225,5.8597222222222225,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124940,single observed allocation,5.8597222222222225
+A_gcl,777,5.848055555555556,5.848055555555556,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124944,single observed allocation,5.848055555555556
+A_gcl,2025,5.881111111111111,5.881111111111111,0.0,0.0,0.0,0.0,1,"all matched allocations, including saved progress in failed runs",124945,single observed allocation,5.881111111111111
+A_gcl,2026,6.152777777777778,0.29194444444444445,5.860833333333333,5.860833333333333,0.0,0.0,2,"all matched allocations, including saved progress in failed runs",124946;125032,"multiple allocations, useful/replayed work not separable",6.152777777777778
+A_eqs,42,8.018888888888888,2.09,5.928888888888889,5.928888888888889,0.0,0.0,2,"all matched allocations, including saved progress in failed runs",124948;125033,"multiple allocations, useful/replayed work not separable",8.018888888888888
+A_eqs,123,7.323333333333333,3.1533333333333333,4.17,4.17,0.0,0.0,2,"all matched allocations, including saved progress in failed runs",124952;125034,"multiple allocations, useful/replayed work not separable",7.323333333333333
+A_eqs,777,6.944722222222222,3.9175,3.027222222222222,3.027222222222222,0.0,0.0,2,"all matched allocations, including saved progress in failed runs",124963;125035,"multiple allocations, useful/replayed work not separable",6.944722222222222
+A_eqs,2025,6.955277777777778,5.466666666666667,1.488611111111111,1.488611111111111,0.0,0.0,2,"all matched allocations, including saved progress in failed runs",124967;125036,"multiple allocations, useful/replayed work not separable",6.955277777777778
+A_eqs,2026,6.934166666666667,5.364444444444445,1.5697222222222222,1.5697222222222222,0.0,0.0,2,"all matched allocations, including saved progress in failed runs",124971;125037,"multiple allocations, useful/replayed work not separable",6.934166666666667
+B_eqs,42,7.111111111111112,5.644722222222223,1.466388888888889,1.466388888888889,0.0,0.0,2,"all matched allocations, including saved progress in failed runs",124972;125038,"multiple allocations, useful/replayed work not separable",7.111111111111112
+B_eqs,123,6.951944444444445,5.477222222222222,1.4747222222222223,1.4747222222222223,0.0,0.0,2,"all matched allocations, including saved progress in failed runs",124973;125039,"multiple allocations, useful/replayed work not separable",6.951944444444445
+B_eqs,777,6.170277777777778,6.102222222222222,0.06805555555555555,0.06805555555555555,0.0,0.0,2,"all matched allocations, including saved progress in failed runs",124977;125040,"multiple allocations, useful/replayed work not separable",6.170277777777778
+B_eqs,2025,5.8549999999999995,5.788055555555555,0.06694444444444445,0.06694444444444445,0.0,0.0,2,"all matched allocations, including saved progress in failed runs",124982;125041,"multiple allocations, useful/replayed work not separable",5.8549999999999995
+B_eqs,2026,5.7675,5.7,0.0675,0.0675,0.0,0.0,2,"all matched allocations, including saved progress in failed runs",124983;125042,"multiple allocations, useful/replayed work not separable",5.7675

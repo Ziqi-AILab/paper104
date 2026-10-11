@@ -1,0 +1,11 @@
+method,representation_seed,n_anchors,anchor_positive_cosine,anchor_negative_cosine,topology_margin,source,analysis_role
+A_gcl,42,1880,0.8155439279673874,0.7310082809144662,0.08453564705292124,results/metrics/fidelity/relations/A_gcl_seed-42/triplet_metrics.parquet,descriptive decomposition; no new intervals
+A_gcl,123,1880,0.8178736326364455,0.7256331001755518,0.09224053246089375,results/metrics/fidelity/relations/A_gcl_seed-123/triplet_metrics.parquet,descriptive decomposition; no new intervals
+A_gcl,777,1880,0.8164692916371015,0.7376868745130496,0.07878241712405193,results/metrics/fidelity/relations/A_gcl_seed-777/triplet_metrics.parquet,descriptive decomposition; no new intervals
+A_gcl,2025,1880,0.8181190560727831,0.7388779702746806,0.07924108579810261,results/metrics/fidelity/relations/A_gcl_seed-2025/triplet_metrics.parquet,descriptive decomposition; no new intervals
+A_gcl,2026,1880,0.8150623208043473,0.7342538746811544,0.08080844612319298,results/metrics/fidelity/relations/A_gcl_seed-2026/triplet_metrics.parquet,descriptive decomposition; no new intervals
+A_eqs,42,1880,0.8649798191403153,0.739938800057015,0.12504101908330023,results/metrics/fidelity/relations/A_eqs_seed-42/triplet_metrics.parquet,descriptive decomposition; no new intervals
+A_eqs,123,1880,0.865516410094104,0.7331751051891722,0.13234130490493196,results/metrics/fidelity/relations/A_eqs_seed-123/triplet_metrics.parquet,descriptive decomposition; no new intervals
+A_eqs,777,1880,0.863703676385927,0.7427918001380549,0.12091187624787202,results/metrics/fidelity/relations/A_eqs_seed-777/triplet_metrics.parquet,descriptive decomposition; no new intervals
+A_eqs,2025,1880,0.8631734413998854,0.7344948086019681,0.12867863279791736,results/metrics/fidelity/relations/A_eqs_seed-2025/triplet_metrics.parquet,descriptive decomposition; no new intervals
+A_eqs,2026,1880,0.8668677653490808,0.7492464203457767,0.11762134500330425,results/metrics/fidelity/relations/A_eqs_seed-2026/triplet_metrics.parquet,descriptive decomposition; no new intervals

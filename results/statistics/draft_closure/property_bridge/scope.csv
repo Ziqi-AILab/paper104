@@ -1,0 +1,9 @@
+task,n_records,n_global_structure_groups,n_representation_seeds,n_head_seeds,protocol,label_fraction,input_view,split
+EEA,335,335,5,3,group_ood,1.0,structure_only,test
+EGB,455,455,5,3,group_ood,1.0,structure_only,test
+EGC,2567,2566,5,3,group_ood,1.0,structure_only,test
+EI,337,337,5,3,group_ood,1.0,structure_only,test
+EPS,349,349,5,3,group_ood,1.0,structure_only,test
+NC,349,349,5,3,group_ood,1.0,structure_only,test
+XC,373,373,5,3,group_ood,1.0,structure_only,test
+aggregate,4765,2801,5,3,group_ood,1.0,structure_only,test

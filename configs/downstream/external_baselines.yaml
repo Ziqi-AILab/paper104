@@ -1,0 +1,96 @@
+version: 1
+comparison_policy:
+  controlled_common_table: matched pretraining corpus, exact Paper104 split, target, and input information
+  same_split_external_reference: exact Paper104 downstream split, but a different pretraining corpus or input modality
+  literature_reference: incompatible data, split, target, or unavailable implementation
+
+transpolymer:
+  status: runnable_same_split
+  reporting_table: same_split_external_reference
+  protocol: group_ood
+  difference_from_controlled_arms: upstream external polymer pretraining corpus and tokenizer
+  tasks: [Egc, Egb, Eea, Ei, Xc, EPS, Nc]
+  excluded_until_assets_are_complete: [OPV, PE-II, PE-I]
+  checkpoint: external_baselines/transpolymer/checkpoint
+  tokenizer: external_baselines/transpolymer/tokenizer/roberta-base
+  epochs: 20
+  patience: 5
+  batch_size: 32
+  max_length: 512
+  encoder_learning_rate: 0.00005
+  head_learning_rate: 0.0001
+  weight_decay: 0.01
+  downstream_seeds: [11, 22, 33]
+  fold_source: project split manifests
+  current_folds_per_task: 5
+  current_formal_job_count: 105
+  checkpoint_selection: validation_loss_only
+  checkpoint_retention: metadata
+  matrix_manifest: slurm/generated/external_reference/transpolymer/transpolymer_external_reference_manifest.tsv
+  upstream_float64: true
+  execution: "[GPU-A800 → sbatch]"
+
+periogt:
+  status: runnable_same_split
+  a800_smoke: {status: complete, job_id: 122747, date: 2026-08-25}
+  reporting_table: same_split_external_reference
+  difference_from_controlled_arms: upstream external graph pretraining corpus and graph input
+  input_scope: linear dual-attachment repeat units
+  protocol: group_ood
+  tasks: [Egc, Egb, Eea, Ei, Xc, EPS, Nc]
+  source: external_baselines/periogt/source
+  checkpoint: external_baselines/periogt/checkpoint/pretrained_ckpt/pretrained/light/base.pth
+  scaler: external_baselines/periogt/source/PerioGT_common/datasets/pretrain/scaler_all.pkl
+  runtime: {dgl: 1.1.3+cu121, dgllife: 0.2.9, mordredcommunity: 2.0.7}
+  epochs: 50
+  patience: 20
+  batch_size: 32
+  learning_rate: 0.0001
+  dropout: 0.05
+  preprocess_workers: 8
+  downstream_seeds: [11, 22, 33]
+  task_cache_count: 7
+  current_formal_job_count: 105
+  checkpoint_selection: validation_rmse_only
+  checkpoint_retention: metadata
+  matrix_manifest: slurm/generated/external_reference/graph_models/periogt_external_reference_manifest.tsv
+  preparation_execution: "[CPU → local, no sbatch]"
+  execution: "[GPU-A800 → sbatch]"
+
+grin:
+  status: runnable_same_split
+  a800_smoke: {status: complete, job_id: 122748, date: 2026-08-25}
+  reporting_table: same_split_external_reference
+  difference_from_controlled_arms: graph architecture and repetition augmentation
+  input_scope: linear dual-attachment repeat units
+  protocol: group_ood
+  tasks: [Egc, Egb, Eea, Ei, Xc, EPS, Nc]
+  source: external_baselines/grin/source
+  runtime: {torch_geometric: 2.6.1, CombineMols: 1.0.1.0}
+  reduction_backend: torch.scatter_reduce
+  epochs: 500
+  patience: 50
+  batch_size: 128
+  learning_rate: 0.001
+  num_layers: 5
+  hidden_size: 300
+  repetition_augmentation: true
+  test_time_augmentation: false
+  downstream_seeds: [11, 22, 33]
+  current_formal_job_count: 105
+  checkpoint_selection: validation_rmse_only
+  checkpoint_retention: metadata
+  matrix_manifest: slurm/generated/external_reference/graph_models/grin_external_reference_manifest.tsv
+  execution: "[GPU-A800 → sbatch]"
+
+wd_mpnn:
+  status: vetted_official_runner_missing
+  reporting_table: same_split_external_reference
+  difference_from_controlled_arms: weighted stoichiometry and connection-rule input
+  input_scope: Aldeghi EA/IP weighted connection records only
+  note: Polymer-JEPA WDNodeMPNN is a related implementation and is not relabeled as the Aldeghi wD-MPNN baseline.
+
+poco:
+  status: compatible_official_implementation_missing
+  reporting_table: literature_reference
+  reporting: any future reimplementation must be named PoCo-style

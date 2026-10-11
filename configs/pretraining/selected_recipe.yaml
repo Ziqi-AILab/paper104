@@ -1,0 +1,40 @@
+version: 1
+selection:
+  source: ./slurm/generated/development/development_manifest.tsv
+  development_seeds:
+  - 13
+  - 37
+  metric: final_validation_mlm_loss
+  aggregation: mean_across_development_seeds
+  A0_warm_learning_rate:
+    arm: A0
+    learning_rate: 0.0001
+    boundary_fraction: 0.65
+    interior_fraction: 0.25
+    mean_validation_mlm_loss: 0.7325379693731415
+    seed_losses:
+      13: 0.7297012888455147
+      37: 0.7353746499007685
+  B0_scratch_learning_rate:
+    arm: B0
+    learning_rate: 0.0001
+    boundary_fraction: 0.65
+    interior_fraction: 0.25
+    mean_validation_mlm_loss: 0.7326388349506467
+    seed_losses:
+      13: 0.7288450383387923
+      37: 0.7364326315625013
+  A_att_boundary_ratio_at_selected_warm_lr:
+    arm: A_att
+    learning_rate: 0.0001
+    boundary_fraction: 0.65
+    interior_fraction: 0.25
+    mean_validation_mlm_loss: 0.7418983815859592
+    seed_losses:
+      13: 0.7404051610376201
+      37: 0.7433916021342984
+selected_recipe:
+  warm_learning_rate: 0.0001
+  scratch_learning_rate: 0.0001
+  boundary_fraction: 0.65
+  interior_fraction: 0.25
